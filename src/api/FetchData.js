@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 
-const [loading, setLoading] = useState(true);
+function FetchData(){
 
-const url = "";
+    const url = "https://api.thevirustracker.com/free-api?global=stats";
 
-useEffect(() => {
-    FetchData();
-}, [loading]);
-
-const FetchData = async() => {
-    try{
-        const response = await fetch(url);
-        const data = await response.json();
-        setLoading(false);
-        console.log(data);
-    }
-    catch(error){
-
-    }
+    useEffect(() => {
+        const fetchdata = async() => {
+            try{
+                const response = await fetch(url);
+                const data = await response.json();
+                console.log(data);
+            }
+            catch(error){
+                console.log("error");
+            }
+        }
+    }, []);
+    
 }
+
+export default FetchData;

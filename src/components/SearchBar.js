@@ -1,21 +1,12 @@
 import React from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, InputBase } from '@material-ui/core';
+import { InputBase } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 
 
 const useStyles = makeStyles((theme) => ({
   grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
+    margin: '0 auto',
   },
   search: {
     position: 'relative',
@@ -29,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
-      width: 'auto',
+      width: '30ch',
     },
   },
   searchIcon: {
@@ -61,24 +52,20 @@ export default function PrimarySearchAppBar() {
 
   return (
     <div>
-      <AppBar position="static">
-        <Toolbar>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-          <div />
-        </Toolbar>
-      </AppBar>
+      <div className={classes.search}>
+        <div className={classes.searchIcon}>
+          <SearchIcon />
+        </div>
+        <InputBase
+          placeholder="Search…"
+          classes={{
+            root: classes.inputRoot,
+            input: classes.inputInput,
+          }}
+          inputProps={{ 'aria-label': 'search' }}
+        />
+      </div>
+      <div />
     </div>
   );
 }
